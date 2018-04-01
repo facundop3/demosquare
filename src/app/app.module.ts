@@ -14,10 +14,14 @@ import { Routes } from '@angular/router';
 import { RouterModule } from '@angular/router';
 import { DetailComponent } from './detail/detail.component';
 import { HomeComponent } from './home/home.component';
+import { SortableHtmlComponent } from './sortable-html/sortable-html.component';
+
+import { SortablejsModule } from 'angular-sortablejs';
 
 const appRoutes: Routes = [
   {path:'',component: HomeComponent},
   {path:'detail',component: DetailComponent},
+  {path:'sort',component: SortableHtmlComponent},
 ]
 
 @NgModule({
@@ -27,6 +31,7 @@ const appRoutes: Routes = [
     ClickCounterDirective,
     DetailComponent,
     HomeComponent,
+    SortableHtmlComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,6 +40,7 @@ const appRoutes: Routes = [
       apiKey: 'AIzaSyCDjGffLTcaz4z-aLveYaBnvOa_rzs1x0Q'
     }),
     RouterModule.forRoot(appRoutes),
+    SortablejsModule.forRoot({ animation: 150 }),
   ],
   providers: [],
   bootstrap: [AppComponent]
