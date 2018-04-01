@@ -1,0 +1,22 @@
+<div class="container">
+  <h1>Test</h1>
+  <div class="row">
+    <select id="month_start" class="col-2 custom-select">
+      <option *ngFor="let month of monthsList">{{ month.name }}</option>
+    </select>
+    <select id="day_start" class="col-1 custom-select" [ngSwitch]='1' >
+      <ng-container *ngSwitchCase="1">
+        <option *ngFor="let day of daysList">{{day}}</option>
+      </ng-container>
+      <ng-container *ngSwitchCase="2">
+        <option *ngFor="let day of daysList|slice:29">{{day}}</option>
+      </ng-container>
+      <ng-container *ngSwitchCase="3">
+        <option *ngFor="let day of daysList|slice:28">{{day}}</option>
+      </ng-container>
+        </select>
+    <select id="year_start" class="col-1 custom-select">
+      <option *ngFor="let year of yearsList">{{ year }}</option>
+    </select>
+  </div>
+</div>

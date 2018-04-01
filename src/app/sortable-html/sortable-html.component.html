@@ -3,8 +3,12 @@
     <h1>Here comes the resortables divs:</h1>
   </div>
   <div class="row">
-      <div class=" row items1" [sortablejs]="items1" [sortablejsOptions]="options">
-        <div class="card col" *ngFor="let item of items1">{{ item }}</div>
+      <div class=" row col-12 items1" [sortablejs]="items1" [sortablejsOptions]="options">
+        <div class="col card box" *ngFor="let item of items1">
+          <div class="content">
+            {{ item }}
+        </div>
+      </div>
       </div>
   </div>
 </div>
