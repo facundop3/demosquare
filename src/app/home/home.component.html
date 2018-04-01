@@ -1,0 +1,27 @@
+<div style="text-align:center">
+    <h1>
+      Welcome to {{ title }}!
+    </h1>
+    <br>
+    <agm-map [latitude]="this.lat" [longitude]="this.lng"style="height:600px;">
+      <agm-marker [latitude]="this.lat" [longitude]="this.lng"></agm-marker>
+    </agm-map>
+    <hr>
+    <div class="container">
+      <div class="row">
+        <ul class="list-group col-md-8">
+          <h1>Great Food Places:</h1>
+          <ng-container *ngFor="let place of places" [ngSwitch]="place.distanceRange" >
+            <li click-counter [ngStyle]="{color: (place.show) ? 'black' : 'red'}" class="list-group-item remove-list-dots" [testremark]="place.premiun">
+              {{place.name}} -
+              <span *ngSwitchCase="1" [ngStyle]="{color: 'green'}">Cerca</span>
+              <span *ngSwitchCase="2" [ngStyle]="{color:'orange'}">Distancia media</span>
+              <span *ngSwitchCase="3" [ngStyle]="{color: 'red'}">Lejos</span>
+            </li>
+          </ng-container>
+        </ul>
+        <div class="col-md-4">
+          <h2>Destacados 2018</h2>
+        </div>
+  </div>
+</div>

@@ -5,9 +5,9 @@ import { Directive, HostListener, HostBinding } from "@angular/core" ;
 })
 export class ClickCounterDirective{
     clickCount:number = 0;
-    @HostBinding('style.opacity') opacity: number = 0.1;
     @HostListener('click', ['$event.target']) onClick(btn){
+      // @HostBinding('style.opacity') opacity: number = 0.1;
       console.log('a', btn, `Clicks number  ${this.clickCount++}`);
-      this.opacity+= 0.1;
+      // this.opacity+= 0.2;
     };
 }

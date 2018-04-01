@@ -1,14 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
-export class AppComponent {
-  title = 'Demosquare';
-  blocked= true;
-  someText='';
+export class HomeComponent implements OnInit {
   lat:number = 21.3280192;
   lng:number = -157.8692847;
   places: any= [
@@ -25,9 +22,9 @@ export class AppComponent {
     {premiun: true,distance:0.5, distanceRange:1,show:false,name:'Pollo frito'},
     {premiun: true,distance:1.2, distanceRange:1,show:true,name:'Breaking bread'}
   ];
-  constructor(){
+  constructor() { }
+
+  ngOnInit() {
   }
-  sayHello = function(){
-    alert('Hello');
-  }
+
 }

@@ -10,12 +10,23 @@ import { AppComponent } from './app.component';
 import { AgmCoreModule } from '@agm/core';
 import { RemarkDirective } from './directives/remark.directive';
 import { ClickCounterDirective } from './directives/click-counter.directive';
+import { Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
+import { DetailComponent } from './detail/detail.component';
+import { HomeComponent } from './home/home.component';
+
+const appRoutes: Routes = [
+  {path:'',component: HomeComponent},
+  {path:'detail',component: DetailComponent},
+]
 
 @NgModule({
   declarations: [
     AppComponent,
     RemarkDirective,
     ClickCounterDirective,
+    DetailComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,6 +34,7 @@ import { ClickCounterDirective } from './directives/click-counter.directive';
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCDjGffLTcaz4z-aLveYaBnvOa_rzs1x0Q'
     }),
+    RouterModule.forRoot(appRoutes),
   ],
   providers: [],
   bootstrap: [AppComponent]

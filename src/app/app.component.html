@@ -1,25 +1,19 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <div class="container">
-    <h1>
-      Welcome to {{ title }}!
-    </h1>
-    <input type="text" name="" value="" [(ngModel)]='someText'>
-    <br>
-    <h1>{{someText}}</h1>
-    <agm-map [latitude]="this.lat" [longitude]="this.lng"style="height:600px;">
-      <agm-marker [latitude]="this.lat" [longitude]="this.lng"></agm-marker>
-    </agm-map>
-    <hr>
-    <ul class="list-group">
-      <ng-container *ngFor="let place of places" [ngSwitch]="place.distanceRange" >
-        <li click-counter [ngStyle]="{color: (place.show) ? 'black' : 'red'}" class="list-group-item remove-list-dots" [testremark]="place.premiun">
-          {{place.name}} -
-          <span *ngSwitchCase="1" [ngStyle]="{color: 'green'}">Cerca</span>
-          <span *ngSwitchCase="2" [ngStyle]="{color:'orange'}">Distancia media</span>
-          <span *ngSwitchCase="3" [ngStyle]="{color: 'red'}">Lejos</span>
-        </li>
-      </ng-container>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Demosquare</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Contact</a>
+      </li>
     </ul>
   </div>
-</div>
+</nav>
+<br>
+<router-outlet></router-outlet>
