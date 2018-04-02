@@ -1,22 +1,26 @@
 <div class="container">
   <h1>Test</h1>
   <div class="row">
-    <select id="month_start" class="col-2 custom-select">
-      <option *ngFor="let month of monthsList">{{ month.name }}</option>
+    <select id="month_start" class="col-2 custom-select" (change)="setDays($event.target)" [(ngModel)]="selectedMonth">
+      <option *ngFor="let month of monthsList;"  >{{ month.name }}</option>
     </select>
-    <select id="day_start" class="col-1 custom-select" [ngSwitch]='1' >
-      <ng-container *ngSwitchCase="1">
+    <!-- <h1> {{this.i}}</h1> -->
+    <h1>{{this.selectedMonth}}</h1>
+    <select id="day_start" class="col-1 custom-select" [ngSwitch]='this.selectedMonth' >
+    <!-- <select id="day_start" class="col-1 custom-select" [ngSwitch]='this.monthsList[this.selectedMonth].days' > -->
+      <ng-container *ngIf="['Enero','Marzo','Mayo','Julio','Agosto','Octubre','Diciembre'].includes(this.selectedMonth)">
         <option *ngFor="let day of daysList">{{day}}</option>
       </ng-container>
-      <ng-container *ngSwitchCase="2">
-        <option *ngFor="let day of daysList|slice:29">{{day}}</option>
+      <ng-container *ngIf="['Abril','Junio', 'Setiembre','Noviembre'].includes(this.selectedMonth)">
+        <option *ngFor="let day of daysList|slice:0:30">{{day}}</option>
       </ng-container>
-      <ng-container *ngSwitchCase="3">
-        <option *ngFor="let day of daysList|slice:28">{{day}}</option>
+      <ng-container *ngIf="'Febrero'">
+        <option *ngFor="let day of daysList|slice:0:29">{{day}}</option>
       </ng-container>
         </select>
     <select id="year_start" class="col-1 custom-select">
       <option *ngFor="let year of yearsList">{{ year }}</option>
     </select>
   </div>
+  <button type="button" (click)="getdays()">get days</button>
 </div>

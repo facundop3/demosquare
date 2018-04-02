@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./date-picker.component.css']
 })
 export class DatePickerComponent implements OnInit {
+  selectedMonth:any;
   monthsList:any = [
     {days:1, value:1, name:"Enero"},
     {days:3, value:2, name:"Febrero"},
@@ -25,8 +26,14 @@ export class DatePickerComponent implements OnInit {
   constructor() { }
 
   setDays = function(num){
-    alert('test');
+    console.log(num.days);
     // this.daysList= (Array.from(Array(num).keys())).map((x)=> x+1);
+  }
+  getdays(){
+    console.log(this.daysList)
+  }
+  trackByIndex(index: number, obj: any): any {
+  return index;
   }
   ngOnInit() {
   }
