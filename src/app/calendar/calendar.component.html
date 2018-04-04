@@ -1,0 +1,53 @@
+
+        <!-- <h4>Month</h4> -->
+        <!-- Lista de 35 dias, el dia de la semana del primer dia del mes nos dara el index en el que comienza a contar los dias (ese index nos dice cuantos dias del mes anterior incluir al comienzo del mes ) -->
+        <div class="container">
+      <h1>Yay </h1>
+      <div class="rectangle">
+        <div class="row">
+
+        <nav class="nav">
+          <li class="nav-item">
+            <a href="#">Datos personales</a>
+          </li>
+          <li class="nav-item">
+            <a href="#">Evaluaciones</a>
+          </li>
+          <li class="nav-item">
+            <a href="#">Mi calendario</a>
+          </li>
+          <li class="nav-item">
+            <a href="#">Mis mascotas</a>
+          </li>
+          <li class="nav-item">
+            <a href="#">Ser anfitrion</a>
+          </li>
+          <li class="nav-item">
+            <a href="#">Creditos o Cuponeras</a>
+          </li>
+        </nav>
+      </div>
+      <div class="row">
+        <h1>Calendario personal</h1>
+        <small>¿como funciona?</small>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-8 calendar-box">
+        <div class="row calendar-header">
+          <div class="col-12 center">
+            <input type="date" [(ngModel)]="monthPicker" (change)="getDaysInMonth(this.monthPicker)">
+            <h2>{{monthPicker}}</h2>
+          </div>
+            <div class="col center" *ngFor="let letter of weekDaysLetters">
+              <h5 class="day-letter">{{letter}}</h5>
+            </div>
+        </div>
+        <div class="row calendar-week" *ngFor="let week of weeksList">
+          <div class="col day-box" *ngFor="let day of week">
+            {{day.date}}
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>

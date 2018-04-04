@@ -18,12 +18,14 @@ import { SortableHtmlComponent } from './sortable-html/sortable-html.component';
 
 import { SortablejsModule } from 'angular-sortablejs';
 import { DatePickerComponent } from './date-picker/date-picker.component';
+import { CalendarComponent } from './calendar/calendar.component';
 
 const appRoutes: Routes = [
   {path:'',component: HomeComponent},
   {path:'detail',component: DetailComponent},
   {path:'sort',component: SortableHtmlComponent},
   {path:'date',component: DatePickerComponent},
+  {path:'calendar',component: CalendarComponent},
 ]
 
 @NgModule({
@@ -35,6 +37,7 @@ const appRoutes: Routes = [
     HomeComponent,
     SortableHtmlComponent,
     DatePickerComponent,
+    CalendarComponent,
   ],
   imports: [
     BrowserModule,

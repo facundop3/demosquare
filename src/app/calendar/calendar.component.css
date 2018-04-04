@@ -1,0 +1,31 @@
+.rectangle {
+  max-width: 862px;
+  height: auto;
+  border-radius: 4px;
+  background-color: #ffffff;
+  margin: auto;
+}
+.calendar-box{
+  border: solid 2px grey;
+  border-radius: 3px;
+}
+.day-box{
+  border: solid 2px red;
+}
+.calendar-header{
+  background-color: #254b51;
+  color: white;
+}
+.calendar-week{
+  height: 3em;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  color: #9b9b9b;
+}
+.day-letter{
+  font-weight: bold;
+}
+.center{
+  text-align: center;
+}
