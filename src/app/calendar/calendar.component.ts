@@ -23,7 +23,7 @@ export class CalendarComponent implements OnInit {
       console.log(date)
       var days = [];
       while (date.getMonth() === month) {
-            days.push({"date":(new Date(date)).getDate(),"weekDay":(new Date(date)).getDay() });
+            days.push({"date":(new Date(date)).getDate(),"weekDay":(new Date(date)).getDay() , "clicked":false });
             date.setDate(date.getDate() + 1);
          }
          this.daysList= this.addBlankSpaces(days);
@@ -49,6 +49,10 @@ export class CalendarComponent implements OnInit {
         console.log("splitMonthInWeeks:")
         console.log(this.weeksList)
         this.weeksList = [dayList.slice(0,7),dayList.slice(7,14),dayList.slice(14,21),dayList.slice(21,28),dayList.slice(28)]
+      }
+      markDay = function(event){
+        // console.log((event.target))
+        (event.target).classList.add('marked-day');
       }
 
   ngOnInit() {
