@@ -43,8 +43,8 @@
               <h5 class="day-letter">{{letter}}</h5>
             </div>
         </div>
-        <div class="row calendar-week" *ngFor="let week of weeksList">
-          <div class="col day-box" *ngFor="let day of week"  [ngClass]="{'marked-day': day.clicked}" (click)="markDay($event)">
+        <div class="row calendar-week" *ngFor="let week of weeksList; let weekIndex = index;">
+          <div class="col day-box" *ngFor="let day of week; let dayIndex = index;"  [ngClass]="{'marked-day': day.clicked}" (click)="markDay($event, weekIndex, dayIndex)">
             {{day.date}}
           </div>
         </div>

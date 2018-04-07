@@ -50,9 +50,12 @@ export class CalendarComponent implements OnInit {
         console.log(this.weeksList)
         this.weeksList = [dayList.slice(0,7),dayList.slice(7,14),dayList.slice(14,21),dayList.slice(21,28),dayList.slice(28)]
       }
-      markDay = function(event){
-        // console.log((event.target))
-        (event.target).classList.add('marked-day');
+      markDay = function(event, week , day){
+        console.log(week);
+        console.log(day);
+        console.log(this.weeksList[week][day])
+        this.weeksList[week][day].clicked = ! this.weeksList[week][day].clicked;
+        console.log(this.weeksList[week][day])
       }
 
   ngOnInit() {
