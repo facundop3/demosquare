@@ -44,7 +44,7 @@
             </div>
         </div>
         <div class="row calendar-week" *ngFor="let week of weeksList; let weekIndex = index;">
-          <div class="col day-box" *ngFor="let day of week; let dayIndex = index;"  [ngClass]="{'marked-day': day.clicked}" (click)="markDay($event, weekIndex, dayIndex)">
+          <div class="col day-box" *ngFor="let day of week; let dayIndex = index;"  [ngClass]="{'marked-day': day.clicked, 'next-day-marked': day.sameAsRight}" (click)="markDay($event, weekIndex, dayIndex)">
             {{day.date}}
           </div>
         </div>

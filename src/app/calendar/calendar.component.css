@@ -32,3 +32,6 @@
 .marked-day{
   background-color: pink;
 }
+.next-day-marked{
+  background-color: green;
+}

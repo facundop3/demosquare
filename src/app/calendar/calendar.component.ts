@@ -23,7 +23,7 @@ export class CalendarComponent implements OnInit {
       console.log(date)
       var days = [];
       while (date.getMonth() === month) {
-            days.push({"date":(new Date(date)).getDate(),"weekDay":(new Date(date)).getDay() , "clicked":false });
+            days.push({"date":(new Date(date)).getDate(),"weekDay":(new Date(date)).getDay() , "clicked":false,"sameAsRight":false });
             date.setDate(date.getDate() + 1);
          }
          this.daysList= this.addBlankSpaces(days);
@@ -56,6 +56,21 @@ export class CalendarComponent implements OnInit {
         console.log(this.weeksList[week][day])
         this.weeksList[week][day].clicked = ! this.weeksList[week][day].clicked;
         console.log(this.weeksList[week][day])
+        console.log(this.checkNextDay(week,day))
+      }
+      checkNextDay = function(week, day){
+        if(this.weeksList[week][day].clicked && this.weeksList[week][day-1].clicked){
+          this.weeksList[week][day].sameAsRight = true
+          this.weeksList[week][day-1].sameAsRight = true
+          return 'true'
+        }else if (this.weeksList[week][day].clicked && this.weeksList[week][day+1].clicked){
+          this.weeksList[week][day].sameAsRight = true
+          this.weeksList[week][day+1].sameAsRight = true
+          return 'true'
+
+        }
+        this.weeksList[week][day].sameAsRight = false
+        return 'false'
       }
 
   ngOnInit() {
