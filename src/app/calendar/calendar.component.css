@@ -35,3 +35,6 @@
 .next-day-marked{
   background-color: green;
 }
+.disabled-day {
+  color:#d5d5d5;
+}

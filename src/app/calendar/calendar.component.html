@@ -37,14 +37,14 @@
         <div class="row calendar-header">
           <div class="col-12 center">
             <input type="date" [(ngModel)]="monthPicker" (change)="getDaysInMonth(this.monthPicker)">
-            <h2>{{monthPicker}}</h2>
+            <h2>{{monthsList[this.monthNumber]+' - '+ this.monthYear }}</h2>
           </div>
             <div class="col center" *ngFor="let letter of weekDaysLetters">
               <h5 class="day-letter">{{letter}}</h5>
             </div>
         </div>
         <div class="row calendar-week" *ngFor="let week of weeksList; let weekIndex = index;">
-          <div class="col day-box" *ngFor="let day of week; let dayIndex = index;"  [ngClass]="{'marked-day': day.clicked, 'next-day-marked': day.sameAsRight}" (click)="markDay($event, weekIndex, dayIndex)">
+          <div class="col day-box align-middle" *ngFor="let day of week; let dayIndex = index;"  [ngClass]="{'marked-day': day.clicked, 'next-day-marked': day.sameAsRight, 'disabled-day': day.disabled}" (click)="markDay($event, weekIndex, dayIndex)">
             {{day.date}}
           </div>
         </div>
