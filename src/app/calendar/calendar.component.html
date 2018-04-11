@@ -37,7 +37,7 @@
         <div class="row calendar-header">
           <div class="col-12 center">
             <input type="date" [(ngModel)]="monthPicker" (change)="getDaysInMonth(this.monthPicker)">
-            <h2>{{monthsList[this.monthNumber]+' - '+ this.monthYear }}</h2>
+            <h2><i class="arrow left" (click)="previousMonth()"></i> {{monthsList[this.monthNumber]+' - '+ this.monthYear }} <i class="arrow right" (click)="nextMonth()"></i></h2>
           </div>
             <div class="col center" *ngFor="let letter of weekDaysLetters">
               <h5 class="day-letter">{{letter}}</h5>

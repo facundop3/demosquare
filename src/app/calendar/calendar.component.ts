@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-calendar',
@@ -7,24 +8,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CalendarComponent implements OnInit {
   weekDaysLetters:any = ['D','L','M','M','J','V','S'];
-  monthPicker:any = ((((new Date()).toLocaleDateString()).split('/')).reverse()).join('-');
+  monthPicker:any = moment();
+  // monthPicker:any = ((((new Date()).toLocaleDateString()).split('/')).reverse()).join('-');
   monthsList:any = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Setiembre','Octubre', 'Noviembre', 'Diciembre'];
-  monthNumber:any = this.monthPicker.split('-')[1] -1;
-  monthYear:any = this.monthPicker.split('-')[0];
+  monthNumber:any = this.monthPicker.format('MM');
+  monthYear:any = this.monthPicker.format('YYYY');
   daysList:any;
   weeksList:any;
   constructor() {
     this.getDaysInMonth(this.monthPicker);
   }
-    getDaysInMonth = function (monthYearDay) {
-      console.log("getDaysInMonth:")
+    getDaysInMonth = function (selectedMonth) {
+      console.log(selectedMonth)
+      let monthYearDay = selectedMonth.format('MM-YYYY-DD');
+      console.log("getDaysInMonth:");
+      console.log(monthYearDay);
+      this.monthNumber = Number(this.monthNumber) +1;
+      this.monthNumber = toString(Number(this.monthNumber) +1);
       console.log(this.monthNumber)
-      this.monthNumber= this.monthPicker.split('-')[1] -1;
-
       let year = (monthYearDay.split('-')).slice(0,2).map(x => Number(x))[0]
       let month = (monthYearDay.split('-')).slice(0,2).map(x => Number(x) -1)[1]
-      // console.log(year)
-      // console.log(month)
+      console.log(year);
+      console.log(month);
       var date = new Date(year, month, 1);
       // console.log(date)
       var days = [];
@@ -93,6 +98,20 @@ export class CalendarComponent implements OnInit {
         // }
         // this.weeksList[week][day].sameAsRight = false
         // return 'false'
+      }
+      nextMonth= function(){
+        // console.log(this.monthPicker);
+        console.log(this.monthNumber);
+        console.log(this.monthYear);
+        let test = new Date();
+        let testMoment = moment().format('DDMMYYYY');
+        console.log(test);
+        console.log(testMoment);
+        // console.log(test.setMonth(3));
+          this.monthPicker=this.monthPicker.setMonth(this.monthPicker.getMonth()+1);
+      }
+      previousMonth= function(){
+          this.monthPicker= this.monthPicker.setMonth(this.monthPicker.getMonth()-1);
       }
 
   ngOnInit() {
